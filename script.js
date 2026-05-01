@@ -109,6 +109,40 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const track = document.querySelector(".carousel-track");
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".dots");
+
+let index = 0;
+
+// crear dots
+slides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+
+  dot.addEventListener("click", () => {
+    index = i;
+    updateCarousel();
+  });
+
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dots span");
+
+function updateCarousel() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach(d => d.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+// auto slide
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  updateCarousel();
+}, 4000);
+
 
 
 
