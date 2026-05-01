@@ -10,13 +10,19 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: clip;
+}
 body {
   margin: 0;
   font-family: 'Rajdhani', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
+  width: 100%;
+  overflow-x: clip;
 }
 
 .logo-img {
@@ -364,13 +370,13 @@ input, textarea {
 }
 .reveal.visible { opacity: 1; transform: none; }
 
-@media (min-width: 900px) {␊
+@media (min-width: 900px) {
   .nav-toggle { display: none; }
   .main-nav ul { display: flex; }
   .services-grid { grid-template-columns: repeat(3, 1fr); }
   .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-  
+  .contact-grid { grid-template-columns: 1fr 1fr; }
   .trust-grid { grid-template-columns: repeat(4, 1fr); }
   .before-after-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -397,6 +403,7 @@ input, textarea {
     text-align: center;
     font-size: 1.05rem;
     gap: 0.45rem;
+    flex-wrap: wrap;
   }
 
   .logo-img {
@@ -417,8 +424,16 @@ input, textarea {
   .hero-actions .btn,
   .section-action .btn,
   .pack-card .btn {
+    display: block;
     width: 100%;
+    max-width: 100%;
     text-align: center;
+  }
+
+  .hero-content,
+  .main-nav,
+  .main-nav.open ul {
+    max-width: 100%;
   }
 
   .hero {
