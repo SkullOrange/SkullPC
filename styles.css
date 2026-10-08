@@ -582,7 +582,9 @@ img {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: var(--surface);
+  background:
+    var(--surface)
+    url("img/trabajos/pc (8).jpeg") center 28% / cover no-repeat;
   box-shadow: var(--shadow);
 }
 
@@ -590,6 +592,9 @@ img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: center 28%;
+  transform: scale(0.97);
+  transform-origin: center 28%;
 }
 
 .component-note {
@@ -808,11 +813,23 @@ textarea {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #001010;
+  background: #25d366;
+  color: #fff;
   text-decoration: none;
-  font-weight: 900;
-  box-shadow: var(--shadow);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.32);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.floating-whatsapp:hover {
+  transform: translateY(-3px);
+  background: #1ebe57;
+  box-shadow: 0 18px 38px rgba(37, 211, 102, 0.42);
+}
+
+.floating-whatsapp img {
+  width: 30px;
+  height: 30px;
+  display: block;
 }
 
 .lightbox {
